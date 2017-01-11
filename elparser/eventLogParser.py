@@ -122,8 +122,9 @@ class EventLogParser(object):
         self.__renameCountryToContinent()
   
     def buildDataFrame(self):
-        dataDict = self.__buildCaseInfo().values()
+        dataDict = self.__buildCaseInfo()
         newDf = pd.DataFrame(dataDict)
+        newDf = newDf.transpose()
         columnsList = ['CaseID', 'StartTime', 'EndTime', 'Duration', 'Impact', 'VariantIndex',
             'OrganizationContinent',
             'In Progress', 'Awaiting Assignment', 'Resolved', 'Assigned', 'Closed', 
